@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus - Tarefas e Metas Pessoais</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#inicio">
+                <div class="logo-icon me-2"></div>
+                <span class="fw-bold tracking-wider">FOCUS</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tarefas">Tarefas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#metas">Metas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ferramentas">Ferramentas</a></li>
+                </ul>
+                <div class="d-flex mt-3 mt-lg-0">
+                    <a href="#tarefas" class="btn btn-premium btn-sm px-4 w-100 w-lg-auto">Começar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6 scroll-reveal">
+                    <p class="welcome-message mb-3" id="welcomeMessage"
+                        style="font-size: 1.1rem; color: #06b6d4; font-weight: 500;"></p>
+                    <h1 class="hero-title mb-3" id="heroTitle">Simplifique sua rotina. <br><span
+                            class="text-gradient">Alcance suas metas.</span></h1>
+                    <p class="hero-subtitle mb-4 text-muted">Um espaço minimalista e direto para você organizar suas
+                        tarefas diárias, rastrear objetivos de longo prazo e manter o foco no que realmente importa.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#metas" class="btn btn-premium px-4 py-2">Criar Meta</a>
+                        <a href="#tarefas" class="btn btn-outline-custom px-4 py-2">Ver Tarefas</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 scroll-reveal">
+                    <div class="dashboard-preview p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="badge bg-purple-soft">Visão Geral</span>
+                            <div class="dots-actions d-flex gap-1">
+                                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                            </div>
+                        </div>
+                        <div class="preview-row mb-3">
+                            <div class="preview-bar visual-glow" style="width: 75%;"></div>
+                        </div>
+                        <div class="preview-row mb-3">
+                            <div class="preview-bar" style="width: 45%;"></div>
+                        </div>
+                        <div class="preview-row">
+                            <div class="preview-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3 scroll-reveal">
+                    <div class="stat-card p-4 text-center">
+                        <h3 class="stat-number text-gradient">24</h3>
+                        <p class="stat-label mb-0 text-muted">Tarefas Concluídas</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 scroll-reveal">
+                    <div class="stat-card p-4 text-center">
+                        <h3 class="stat-number text-gradient">07</h3>
+                        <p class="stat-label mb-0 text-muted">Metas Ativas</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 scroll-reveal">
+                    <div class="stat-card p-4 text-center">
+                        <h3 class="stat-number text-gradient">92%</h3>
+                        <p class="stat-label mb-0 text-muted">Produtividade</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 scroll-reveal">
+                    <div class="stat-card p-4 text-center">
+                        <h3 class="stat-number text-gradient">12 d</h3>
+                        <p class="stat-label mb-0 text-muted">Sequência Diária</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tarefas" class="section-spacing">
+        <div class="container">
+            <!-- FORMULÁRIO PARA CRIAR TAREFA -->
+            <div class="row mb-5 scroll-reveal">
+                <div class="col-lg-8">
+                    <div class="create-task-container">
+                        <div class="create-task-form">
+                            <div class="d-flex align-items-center gap-2 mb-4">
+                                <i class="bi bi-plus-circle-fill text-cyan" style="font-size: 1.5rem;"></i>
+                                <h3 class="form-title mb-0">Criar Nova Tarefa</h3>
+                            </div>
+
+                            <form id="taskForm" onsubmit="adicionarTarefa(event)">
+                                <div class="row g-3">
+                                    <!-- Nome da Tarefa -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Nome da Tarefa</label>
+                                            <input type="text" class="form-control form-control-task" id="taskName"
+                                                placeholder="Ex: Finalizar projeto" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Hora -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Hora</label>
+                                            <input type="time" class="form-control form-control-task" id="taskTime"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Dia -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Dia</label>
+                                            <input type="date" class="form-control form-control-task" id="taskDay"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Descrição -->
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Descrição</label>
+                                            <textarea class="form-control form-control-task" id="taskDescription"
+                                                rows="3" placeholder="Descreva os detalhes da tarefa..."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botão Enviar -->
+                                    <div class="col-12 d-flex gap-2">
+                                        <button type="submit" class="btn btn-premium flex-grow-1 py-2">
+                                            <i class="bi bi-check-lg me-2"></i> Adicionar Tarefa
+                                        </button>
+                                        <button type="reset" class="btn btn-outline-custom py-2"
+                                            style="min-width: 120px;">
+                                            <i class="bi bi-arrow-clockwise me-2"></i> Limpar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-end mb-5 scroll-reveal">
+                <div>
+                    <span class="text-uppercase tracking-wider text-cyan font-sm" id="tasksLabel">Fluxo de
+                        Trabalho</span>
+                    <h2 class="section-title mt-1" id="recentTasksTitle">Tarefas Recentes</h2>
+                    <p class="task-section-message mt-3" id="taskSectionMessage"
+                        style="font-size: 0.95rem; color: #9ca3af;"></p>
+                </div>
+                <div class="progress-container text-end d-none d-sm-block">
+                    <span class="font-sm text-muted mb-2 d-block" id="dailyProgressText">Progresso Diário: 68%</span>
+                    <div class="progress custom-progress" style="width: 150px; height: 6px;">
+                        <div class="progress-bar custom-bg-cyan" role="progressbar" id="dailyProgressBar"
+                            style="width: 68%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4" id="tasksContainer">
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="task-card p-4 d-flex flex-column h-100" id="task-1" data-task-id="1">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-cyan-soft task-category" id="task-1-category">Design</span>
+                            <span class="priority-indicator high task-priority" id="task-1-priority">Alta</span>
+                        </div>
+                        <h4 class="task-title" id="task-1-name">Finalizar UI do Dashboard</h4>
+                        <p class="task-desc text-muted flex-grow-1" id="task-1-description">Ajustar o espaçamento dos
+                            cards e alinhar os
+                            gradientes da interface escura.</p>
+                        <div
+                            class="task-footer d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary-subtle">
+                            <span class="task-date text-muted font-sm" id="task-1-date"><i
+                                    class="bi bi-calendar3 me-1"></i><span id="task-1-date-text"> Hoje</span></span>
+                            <button class="btn-done" id="task-1-btn"><i class="bi bi-check-circle"></i>
+                                Concluir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="task-card p-4 d-flex flex-column h-100" id="task-2" data-task-id="2">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-purple-soft task-category" id="task-2-category">Código</span>
+                            <span class="priority-indicator medium task-priority" id="task-2-priority">Média</span>
+                        </div>
+                        <h4 class="task-title" id="task-2-name">Refatorar Scripts JS</h4>
+                        <p class="task-desc text-muted flex-grow-1" id="task-2-description">Otimizar a lógica de scroll
+                            reveal e transições de
+                            hover da navbar fixa.</p>
+                        <div
+                            class="task-footer d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary-subtle">
+                            <span class="task-date text-muted font-sm" id="task-2-date"><i
+                                    class="bi bi-calendar3 me-1"></i><span id="task-2-date-text">
+                                    Amanhã</span></span>
+                            <button class="btn-done" id="task-2-btn"><i class="bi bi-check-circle"></i>
+                                Concluir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 scroll-reveal">
+                    <div class="task-card p-4 d-flex flex-column h-100" id="task-3" data-task-id="3">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-blue-soft task-category" id="task-3-category">Estudos</span>
+                            <span class="priority-indicator low task-priority" id="task-3-priority">Baixa</span>
+                        </div>
+                        <h4 class="task-title" id="task-3-name">Ler Artigo de Clean Code</h4>
+                        <p class="task-desc text-muted flex-grow-1" id="task-3-description">Focar nos capítulos
+                            relacionados a funções puras e
+                            nomenclatura de classes.</p>
+                        <div
+                            class="task-footer d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary-subtle">
+                            <span class="task-date text-muted font-sm" id="task-3-date"><i
+                                    class="bi bi-calendar3 me-1"></i><span id="task-3-date-text"> 02
+                                    Jun</span></span>
+                            <button class="btn-done" id="task-3-btn"><i class="bi bi-check-circle"></i>
+                                Concluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metas" class="section-spacing">
+        <div class="container">
+            <div class="mb-5 scroll-reveal">
+                <span class="text-uppercase tracking-wider text-purple font-sm">Foco de Longo Prazo</span>
+                <h2 class="section-title mt-1" id="goalsTitle">Metas Principais</h2>
+                <p class="goals-message mt-3" id="goalsMessage" style="font-size: 0.95rem; color: #9ca3af;"></p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 scroll-reveal">
+                    <div class="goal-card p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="goal-title mb-1">Fluência em Inglês</h4>
+                                <span class="font-sm text-muted">Prazo: Dezembro 2026</span>
+                            </div>
+                            <span class="goal-percentage text-purple fw-bold">70%</span>
+                        </div>
+                        <div class="progress custom-progress mb-4" style="height: 6px;">
+                            <div class="progress-bar custom-bg-purple" role="progressbar" style="width: 70%"></div>
+                        </div>
+                        <div class="fake-chart d-flex align-items-end justify-content-between pt-2">
+                            <div class="chart-bar" style="height: 30%"></div>
+                            <div class="chart-bar" style="height: 45%"></div>
+                            <div class="chart-bar" style="height: 40%"></div>
+                            <div class="chart-bar" style="height: 65%"></div>
+                            <div class="chart-bar active" style="height: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 scroll-reveal">
+                    <div class="goal-card p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="goal-title mb-1">Lançar App MVP</h4>
+                                <span class="font-sm text-muted">Prazo: Agosto 2026</span>
+                            </div>
+                            <span class="goal-percentage text-cyan fw-bold">40%</span>
+                        </div>
+                        <div class="progress custom-progress mb-4" style="height: 6px;">
+                            <div class="progress-bar custom-bg-cyan" role="progressbar" style="width: 40%"></div>
+                        </div>
+                        <div class="fake-chart d-flex align-items-end justify-content-between pt-2">
+                            <div class="chart-bar" style="height: 15%"></div>
+                            <div class="chart-bar" style="height: 20%"></div>
+                            <div class="chart-bar" style="height: 35%"></div>
+                            <div class="chart-bar active" style="height: 40%"></div>
+                            <div class="chart-bar" style="height: 30%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ferramentas" class="section-spacing">
+        <div class="container">
+            <div class="mb-5 scroll-reveal">
+                <span class="text-uppercase tracking-wider text-cyan font-sm">Ecossistema</span>
+                <h2 class="section-title mt-1">Ferramentas Integradas</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="tool-card p-4 text-center">
+                        <div class="tool-icon mb-3 mx-auto text-cyan">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h5>Pomodoro</h5>
+                        <p class="text-muted font-sm mb-0">Ciclos de foco programados para máxima atenção.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="tool-card p-4 text-center">
+                        <div class="tool-icon mb-3 mx-auto text-purple">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <h5>Calendário</h5>
+                        <p class="text-muted font-sm mb-0">Sincronize prazos e compromissos importantes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="tool-card p-4 text-center">
+                        <div class="tool-icon mb-3 mx-auto text-cyan">
+                            <i class="bi bi-journal-text"></i>
+                        </div>
+                        <h5>Notas Rápidas</h5>
+                        <p class="text-muted font-sm mb-0">Rascunhos instantâneos sem perder o raciocínio.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 scroll-reveal">
+                    <div class="tool-card p-4 text-center">
+                        <div class="tool-icon mb-3 mx-auto text-purple">
+                            <i class="bi bi-moon-stars"></i>
+                        </div>
+                        <h5>Modo Foco</h5>
+                        <p class="text-muted font-sm mb-0">Bloqueio visual completo de distrações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 border-top border-secondary-subtle">
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <div class="col-md-4 text-center text-md-start">
+                    <span class="font-sm text-muted">&copy; 2026 FOCUS. Todos os direitos reservados.</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="d-flex justify-content-center gap-2">
+                        <div class="logo-icon logo-sm"></div>
+                        <span class="fw-bold font-sm tracking-wider text-white">FOCUS</span>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="footer-links d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="#inicio" class="font-sm text-muted text-decoration-none">Início</a>
+                        <a href="#tarefas" class="font-sm text-muted text-decoration-none">Tarefas</a>
+                        <a href="#metas" class="font-sm text-muted text-decoration-none">Metas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="home.js"></script>
+
+</body>
+
+</html>
