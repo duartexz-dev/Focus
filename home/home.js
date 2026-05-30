@@ -53,6 +53,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+let tarefas = document.getElementById("tasksR")
+let tarefasS = localStorage.getItem("TasksSalvas")
+
+tarefas.innerHTML = `${tarefasS}`
+
+let tarefasC = document.getElementById("TarefasConcluidas")
+let metas = document.getElementById("Metas")
+let produtividade = document.getElementById("Produtividade")
+let sequencia = document.getElementById("SequenciaDiaria")
+
+metas.innerHTML = 0
+tarefasC.innerHTML = 0
+produtividade.innerHTML = 0 + "%"
+sequencia.innerHTML = 0 + "d"
+
 const nome = JSON.parse(localStorage.getItem("nomeUser"))
 
 // ========== VARIÁVEIS DOS ELEMENTOS PARA MODIFICAR ==========
@@ -107,8 +122,6 @@ if (nome) {
     // Seção de Tarefas
     recentTasksTitle.textContent = nome + ' - Tarefas Recentes';
     taskSectionMessage.textContent = 'Esta é sua área de tarefas. Vamos criar uma tarefa?';
-    dailyProgressText.textContent = 'Progresso de ' + nome + ': 68%';
-
     // Seção de Metas
     goalsMessage.textContent = 'Alcance seus objetivos de longo prazo, ' + nome + '. Vamos definir metas?';
 }
@@ -116,5 +129,65 @@ if (nome) {
 
 
 function criarTarefa() {
+
+    let nomeTask = document.getElementById("nomeT").value
+    let dataTask = document.getElementById("dataT").value
+    let hora = document.getElementById("horaT").value
+    let bioTask = document.getElementById("bioT").value
+    let tasksRescentes = document.getElementById("tasksR")
+    if (!nomeTask || !dataTask || !hora || !bioTask) {
+        document.getElementById("alertErro").style.display = "flex"
+    } else {
+        tasksRescentes.innerHTML += `<div class="col-md-6 col-lg-4">
+    <div class="task-card d-flex flex-column h-100 p-4 rounded-4">
+        <h4 class="task-title">
+            ${nomeTask}
+        </h4>
+        <p class="task-desc text-muted flex-grow-1">
+            ${bioTask}
+        </p>
+        <div class="task-footer d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary-subtle">
+            <span class="task-date text-muted font-sm">
+                <i class="bi bi-calendar3 me-1"></i>
+                <span>
+                    ${dataTask} / ${hora}
+                </span>
+            </span>
+            <button class="btn-done" onclick = "concluirTask()">             <i class="bi bi-check-circle"></i>
+                Concluir
+            </button>
+        </div>
+    </div>
+</div>`
+
+        limparFormulario()
+        document.getElementById("alertBox").style.display = "flex"
+
+        localStorage.setItem("TasksSalvas", tasksRescentes.innerHTML)
+
+    }
+}
+
+function limparFormulario() {
+    document.getElementById("nomeT").value = ""
+    document.getElementById("dataT").value = ""
+    document.getElementById("horaT").value = ""
+    document.getElementById("bioT").value = ""
+}
+function fecharAlert() {
+    document.getElementById("alertBox").style.display = "none";
+}
+
+function fecharErro() {
+    document.getElementById("alertErro").style.display = "none";
+}
+
+
+
+
+function concluirTask() {
+
+    tarefasC + 1
+
 
 }
