@@ -58,14 +58,15 @@ let tarefasS = localStorage.getItem("TasksSalvas")
 
 tarefas.innerHTML = `${tarefasS}`
 
-let tarefasC = document.getElementById("TarefasConcluidas")
-let metas = document.getElementById("Metas")
-let produtividade = document.getElementById("Produtividade")
-let sequencia = document.getElementById("SequenciaDiaria")
 
+let tarefasCHistorico = document.getElementById("TarefasConcluidas")
+tarefasCHistorico.innerHTML = localStorage.getItem("tarefasFeitas")
+
+
+
+let metas = document.getElementById("Metas")
+let sequencia = document.getElementById("SequenciaDiaria")
 metas.innerHTML = 0
-tarefasC.innerHTML = 0
-produtividade.innerHTML = 0 + "%"
 sequencia.innerHTML = 0 + "d"
 
 const nome = JSON.parse(localStorage.getItem("nomeUser"))
@@ -86,32 +87,6 @@ const dailyProgressBar = document.getElementById('dailyProgressBar');
 const goalsTitle = document.getElementById('goalsTitle');
 const goalsMessage = document.getElementById('goalsMessage');
 
-// Task 1
-const task1 = document.getElementById('task-1');
-const task1Name = document.getElementById('task-1-name');
-const task1Description = document.getElementById('task-1-description');
-const task1Category = document.getElementById('task-1-category');
-const task1Priority = document.getElementById('task-1-priority');
-const task1DateText = document.getElementById('task-1-date-text');
-const task1Btn = document.getElementById('task-1-btn');
-
-// Task 2
-const task2 = document.getElementById('task-2');
-const task2Name = document.getElementById('task-2-name');
-const task2Description = document.getElementById('task-2-description');
-const task2Category = document.getElementById('task-2-category');
-const task2Priority = document.getElementById('task-2-priority');
-const task2DateText = document.getElementById('task-2-date-text');
-const task2Btn = document.getElementById('task-2-btn');
-
-// Task 3
-const task3 = document.getElementById('task-3');
-const task3Name = document.getElementById('task-3-name');
-const task3Description = document.getElementById('task-3-description');
-const task3Category = document.getElementById('task-3-category');
-const task3Priority = document.getElementById('task-3-priority');
-const task3DateText = document.getElementById('task-3-date-text');
-const task3Btn = document.getElementById('task-3-btn');
 
 
 // ========== PERSONALIZANDO TEXTOS COM O NOME ==========
@@ -162,9 +137,9 @@ function criarTarefa() {
 
         limparFormulario()
         document.getElementById("alertBox").style.display = "flex"
-
         localStorage.setItem("TasksSalvas", tasksRescentes.innerHTML)
-
+        atualizarTotal(1)
+        atualizarProgresso()
     }
 }
 
@@ -182,12 +157,39 @@ function fecharErro() {
     document.getElementById("alertErro").style.display = "none";
 }
 
-
-
-
 function concluirTask() {
-
-    tarefasC + 1
-
-
+    let TarefasFeitas = Number(tarefasCHistorico.innerHTML) + 1
+    tarefasCHistorico.innerHTML = `${TarefasFeitas}`
+    localStorage.setItem("tarefasFeitas", TarefasFeitas)
+    atualizarConcluidas(1)
+    atualizarProgresso()
 }
+
+function atualizarTotal(adicional) {
+    let totaldeTarefas = Number(localStorage.getItem("totaldetarefas")) + Number(adicional)
+    localStorage.setItem("totaldetarefas", totaldeTarefas)
+}
+function atualizarConcluidas(adicional) {
+    let concluidasAtual = Number(localStorage.getItem("progressoSalvo")) + Number(adicional)
+    localStorage.setItem("progressoSalvo", concluidasAtual)
+}
+
+let progressoInicial = localStorage.getItem("progressoSalvo")
+let total = localStorage.getItem("totaldetarefas")
+
+
+function atualizarProgresso() {
+
+    let progressoInicial = Number(localStorage.getItem("progressoSalvo"))// ele atualiza o progresso inicial , junto com o progresso salvo //
+    let total = Number(localStorage.getItem("totaldetarefas"))//e esse salva o total real junto com o inicial //
+
+    let progressoReal = (progressoInicial / total) * 100
+
+    localStorage.setItem("produtividade", progressoReal)
+}
+
+
+let progresso = localStorage.getItem("produtividade")
+
+let produtividadeText = document.getElementById("Produtividade")
+produtividadeText.innerHTML = Math.min(Number(progresso), 100).toFixed(0) + "%"
