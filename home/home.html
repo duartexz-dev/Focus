@@ -111,96 +111,201 @@
         </div>
     </section>
 
+
     <section id="tarefas" class="section-spacing">
+
+        ```
         <div class="container">
-            <!-- FORMULÁRIO PARA CRIAR TAREFA -->
-            <div class="row mb-5 scroll-reveal">
-                <div class="col-lg-8">
-                    <div class="create-task-container">
-                        <div class="create-task-form">
-                            <div class="d-flex align-items-center gap-2 mb-4">
-                                <i class="bi bi-plus-circle-fill text-cyan" style="font-size: 1.5rem;"></i>
-                                <h3 class="form-title mb-0">Criar Nova Tarefa</h3>
+
+            <!-- HEADER -->
+            <div class="text-center mb-5 scroll-reveal">
+
+                <span class="badge rounded-pill custom-badge px-4 py-2 mb-3">
+                    ORGANIZAÇÃO PESSOAL
+                </span>
+
+                <h2 class="section-title">
+                    Gerencie suas tarefas e metas
+                </h2>
+
+                <p class="section-subtitle">
+                    Organize sua rotina, acompanhe seu progresso e mantenha o foco no que importa.
+                </p>
+
+            </div>
+
+            <!-- FORMULÁRIOS -->
+            <div class="row g-4 align-items-stretch">
+
+                <!-- TAREFAS -->
+                <div class="col-lg-6 scroll-reveal">
+
+                    <div class="modern-form-card task-card h-100">
+
+                        <!-- TOPO -->
+                        <div class="form-header">
+
+                            <div class="form-icon cyan-glow">
+                                <i class="bi bi-lightning-charge-fill"></i>
                             </div>
 
-                            <div id="taskForm">
-                                <div class="row g-3">
-                                    <!-- Nome da Tarefa -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="form-label">Nome da Tarefa</label>
-                                            <input type="text" class="form-control form-control-task" id="nomeT"
-                                                placeholder="Ex: Finalizar projeto" required>
-                                        </div>
-                                    </div>
+                            <div>
+                                <span class="form-mini-text">
+                                    PRODUTIVIDADE
+                                </span>
 
-                                    <!-- Hora -->
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="form-label">Hora</label>
-                                            <input type="time" class="form-control form-control-task" id="horaT"
-                                                required>
-                                        </div>
-                                    </div>
-
-                                    <!-- Dia -->
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="form-label">Dia</label>
-                                            <input type="date" class="form-control form-control-task" id="dataT"
-                                                required>
-                                        </div>
-                                    </div>
-
-                                    <!-- Descrição -->
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label class="form-label">Descrição</label>
-                                            <textarea class="form-control form-control-task" id="bioT" rows="3"
-                                                placeholder="Descreva os detalhes da tarefa..."></textarea>
-                                        </div>
-                                    </div>
-
-                                    <!-- Botão Enviar -->
-                                    <div class="col-12 d-flex gap-2">
-                                        <button type="button" class="btn btn-premium flex-grow-1 py-2"
-                                            onclick="criarTarefa()">
-                                            <i class="bi bi-check-lg me-2"></i> Adicionar Tarefa
-                                        </button>
-                                        <button type="button" class="btn btn-outline-custom py-2"
-                                            style="min-width: 120px;" onclick="limparFormulario()">
-                                            <i class="bi bi-arrow-clockwise me-2"></i> Limpar
-                                        </button>
-                                    </div>
-                                </div>
+                                <h3 class="modern-form-title">
+                                    Nova Tarefa
+                                </h3>
                             </div>
+
                         </div>
+
+                        <!-- FORM -->
+                        <div class="mt-4">
+
+                            <div class="mb-3">
+                                <label class="form-label-modern">
+                                    Nome da tarefa
+                                </label>
+
+                                <input type="text" class="modern-input" placeholder="Ex: Estudar JavaScript"
+                                    autocomplete="off">
+                            </div>
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label-modern">
+                                        Horário
+                                    </label>
+
+                                    <input type="time" class="modern-input">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label-modern">
+                                        Data
+                                    </label>
+
+                                    <input type="date" class="modern-input">
+                                </div>
+
+                            </div>
+
+                            <div class="mt-3">
+                                <label class="form-label-modern">
+                                    Descrição
+                                </label>
+
+                                <textarea class="modern-input modern-textarea"
+                                    placeholder="Descreva os detalhes da tarefa..."></textarea>
+                            </div>
+
+                            <button class="modern-btn cyan-btn mt-4 w-100">
+                                <i class="bi bi-plus-lg"></i>
+                                Criar Tarefa
+                            </button>
+
+                        </div>
+
+
                     </div>
+
                 </div>
+
+                <!-- METAS -->
+                <div class="col-lg-6 scroll-reveal">
+
+                    <div class="modern-form-card goal-card-modern h-100">
+
+                        <!-- TOPO -->
+                        <div class="form-header">
+
+                            <div class="form-icon purple-glow">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+
+                            <div>
+                                <span class="form-mini-text">
+                                    LONGO PRAZO
+                                </span>
+
+                                <h3 class="modern-form-title">
+                                    Nova Meta
+                                </h3>
+                            </div>
+
+                        </div>
+
+                        <!-- FORM -->
+                        <div class="mt-4">
+
+                            <div class="mb-3">
+                                <label class="form-label-modern">
+                                    Nome da meta
+                                </label>
+
+                                <input type="text" class="modern-input" placeholder="Ex: Fluência em Inglês"
+                                    autocomplete="off">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label-modern">
+                                    Prazo
+                                </label>
+
+                                <input type="date" class="modern-input">
+                            </div>
+
+                            <div>
+                                <label class="form-label-modern">
+                                    Objetivo
+                                </label>
+
+                                <textarea class="modern-input modern-textarea"
+                                    placeholder="Descreva sua meta..."></textarea>
+                            </div>
+
+                            <button class="modern-btn purple-btn mt-4 w-100">
+                                <i class="bi bi-rocket-takeoff-fill"></i>
+                                Criar Meta
+                            </button>
+
+                            </d>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="d-flex justify-content-between align-items-end mb-5 scroll-reveal">
-                <div>
-                    <span class="text-uppercase tracking-wider text-cyan font-sm" id="tasksLabel">Fluxo de
-                        Trabalho</span>
-                    <h2 class="section-title mt-1" id="recentTasksTitle">Tarefas Recentes</h2>
-                    <p class="task-section-message mt-3" id="taskSectionMessage"
-                        style="font-size: 0.95rem; color: #9ca3af;"></p>
-                </div>
-                <div class="progress-container text-end d-none d-sm-block">
-                    <span class="font-sm text-muted mb-2 d-block" id="dailyProgressText">Progresso Diário: 68%</span>
-                    <div class="progress custom-progress" style="width: 150px; height: 6px;">
-                        <div class="progress-bar custom-bg-cyan" role="progressbar" id="dailyProgressBar"
-                            style="width: 68%"></div>
-                    </div>
-                </div>
-            </div>
+    </section>
 
-            <div class="row g-4" id="tasksR">
 
+    <div class="d-flex justify-content-between align-items-end mb-5 scroll-reveal">
+        <div>
+            <span class="text-uppercase tracking-wider text-cyan font-sm" id="tasksLabel">Fluxo de
+                Trabalho</span>
+            <h2 class="section-title mt-1" id="recentTasksTitle">Tarefas Recentes</h2>
+            <p class="task-section-message mt-3" id="taskSectionMessage" style="font-size: 0.95rem; color: #9ca3af;">
+            </p>
+        </div>
+        <div class="progress-container text-end d-none d-sm-block">
+            <span class="font-sm text-muted mb-2 d-block" id="dailyProgressText">Progresso Diário:
+                68%</span>
+            <div class="progress custom-progress" style="width: 150px; height: 6px;">
+                <div class="progress-bar custom-bg-cyan" role="progressbar" id="dailyProgressBar" style="width: 68%">
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div class="row g-4" id="tasksR">
+
+    </div>
 
     <section id="metas" class="section-spacing">
         <div class="container">
