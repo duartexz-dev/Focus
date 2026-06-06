@@ -193,3 +193,99 @@ let progresso = localStorage.getItem("produtividade")
 
 let produtividadeText = document.getElementById("Produtividade")
 produtividadeText.innerHTML = Math.min(Number(progresso), 100).toFixed(0) + "%"
+// ========================= METAS =======================
+let metasContainer = document.getElementById("metasContainer")
+
+// CARREGAR METAS SALVAS
+let metasSalvas = localStorage.getItem("metasSalvas")
+
+if (metasSalvas) {
+    metasContainer.innerHTML = metasSalvas
+}
+
+// CONTADOR DE METAS
+let totalMetas = Number(localStorage.getItem("totalMetas")) || 0
+
+metas.innerHTML = totalMetas
+
+function criarMeta() {
+
+    let nomeMeta = document.getElementById("metasName").value
+    let prazoMeta = document.getElementById("metaTemp").value
+    let objetivoMeta = document.getElementById("metasObjective").value
+
+    // VALIDAÇÃO
+    if (!nomeMeta || !prazoMeta || !objetivoMeta) {
+
+        document.getElementById("alertErro").style.display = "flex"
+
+        setTimeout(() => {
+
+            document.getElementById("alertErro").style.display = "none"
+
+        }, 3000)
+
+        return
+    }
+
+    // CRIAR META
+    metasContainer.innerHTML += `
+
+    <div class="col-md-6 scroll-reveal">
+
+        <div class="goal-card p-4">
+
+            <div class="d-flex justify-content-between align-items-start mb-3">
+
+                <div>
+
+                    <h4 class="goal-title mb-1">
+                        ${nomeMeta}
+                    </h4>
+
+                    <span class="font-sm text-muted">
+                        Prazo: ${prazoMeta}
+                    </span>
+
+                </div>
+
+                <span class="goal-percentage text-purple fw-bold">
+                    META
+                </span>
+
+            </div>
+
+            <p class="text-muted mb-0">
+                ${objetivoMeta}
+            </p>
+
+        </div>
+
+    </div>
+    `
+
+    // SALVAR METAS
+    localStorage.setItem("metasSalvas", metasContainer.innerHTML)
+
+    // ATUALIZAR TOTAL
+    totalMetas++
+
+    metas.innerHTML = totalMetas
+
+    localStorage.setItem("totalMetas", totalMetas)
+
+    // ALERT SUCESSO
+    document.getElementById("alertBox").style.display = "flex"
+
+    setTimeout(() => {
+
+        document.getElementById("alertBox").style.display = "none"
+
+    }, 3000)
+
+    // LIMPAR CAMPOS
+    document.getElementById("metasName").value = ""
+    document.getElementById("metaTemp").value = ""
+    document.getElementById("metasObjective").value = ""
+
+}

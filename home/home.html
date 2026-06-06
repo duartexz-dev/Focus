@@ -114,7 +114,7 @@
 
     <section id="tarefas" class="section-spacing">
 
-        ```
+
         <div class="container">
 
             <!-- HEADER -->
@@ -136,6 +136,7 @@
 
             <!-- FORMULÁRIOS -->
             <div class="row g-4 align-items-stretch">
+
 
                 <!-- TAREFAS -->
                 <div class="col-lg-6 scroll-reveal">
@@ -169,7 +170,7 @@
                                     Nome da tarefa
                                 </label>
 
-                                <input type="text" class="modern-input" placeholder="Ex: Estudar JavaScript"
+                                <input type="text" class="modern-input" id="nomeT" placeholder="Ex: Estudar JavaScript"
                                     autocomplete="off">
                             </div>
 
@@ -180,7 +181,7 @@
                                         Horário
                                     </label>
 
-                                    <input type="time" class="modern-input">
+                                    <input type="time" class="modern-input" id="horaT">
                                 </div>
 
                                 <div class="col-md-6">
@@ -188,7 +189,7 @@
                                         Data
                                     </label>
 
-                                    <input type="date" class="modern-input">
+                                    <input type="date" class="modern-input" id="dataT">
                                 </div>
 
                             </div>
@@ -198,17 +199,18 @@
                                     Descrição
                                 </label>
 
-                                <textarea class="modern-input modern-textarea"
+                                <textarea class="modern-input modern-textarea" id="bioT"
                                     placeholder="Descreva os detalhes da tarefa..."></textarea>
                             </div>
 
-                            <button class="modern-btn cyan-btn mt-4 w-100">
+                            <button onclick="criarTarefa()" class="modern-btn cyan-btn mt-4 w-100">
+
                                 <i class="bi bi-plus-lg"></i>
                                 Criar Tarefa
+
                             </button>
 
                         </div>
-
 
                     </div>
 
@@ -246,8 +248,8 @@
                                     Nome da meta
                                 </label>
 
-                                <input type="text" class="modern-input" placeholder="Ex: Fluência em Inglês"
-                                    autocomplete="off">
+                                <input type="text" class="modern-input" id="metasName"
+                                    placeholder="Ex: Fluência em Inglês" autocomplete="off">
                             </div>
 
                             <div class="mb-3">
@@ -255,7 +257,7 @@
                                     Prazo
                                 </label>
 
-                                <input type="date" class="modern-input">
+                                <input type="date" class="modern-input" id="metaTemp">
                             </div>
 
                             <div>
@@ -263,11 +265,11 @@
                                     Objetivo
                                 </label>
 
-                                <textarea class="modern-input modern-textarea"
+                                <textarea class="modern-input modern-textarea" id="metasObjective"
                                     placeholder="Descreva sua meta..."></textarea>
                             </div>
 
-                            <button class="modern-btn purple-btn mt-4 w-100">
+                            <button onclick="criarMeta()" class="modern-btn purple-btn mt-4 w-100">
                                 <i class="bi bi-rocket-takeoff-fill"></i>
                                 Criar Meta
                             </button>
@@ -315,51 +317,8 @@
                 <p class="goals-message mt-3" id="goalsMessage" style="font-size: 0.95rem; color: #9ca3af;"></p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-6 scroll-reveal">
-                    <div class="goal-card p-4">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div>
-                                <h4 class="goal-title mb-1">Fluência em Inglês</h4>
-                                <span class="font-sm text-muted">Prazo: Dezembro 2026</span>
-                            </div>
-                            <span class="goal-percentage text-purple fw-bold">70%</span>
-                        </div>
-                        <div class="progress custom-progress mb-4" style="height: 6px;">
-                            <div class="progress-bar custom-bg-purple" role="progressbar" style="width: 70%"></div>
-                        </div>
-                        <div class="fake-chart d-flex align-items-end justify-content-between pt-2">
-                            <div class="chart-bar" style="height: 30%"></div>
-                            <div class="chart-bar" style="height: 45%"></div>
-                            <div class="chart-bar" style="height: 40%"></div>
-                            <div class="chart-bar" style="height: 65%"></div>
-                            <div class="chart-bar active" style="height: 70%"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 scroll-reveal">
-                    <div class="goal-card p-4">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div>
-                                <h4 class="goal-title mb-1">Lançar App MVP</h4>
-                                <span class="font-sm text-muted">Prazo: Agosto 2026</span>
-                            </div>
-                            <span class="goal-percentage text-cyan fw-bold">40%</span>
-                        </div>
-                        <div class="progress custom-progress mb-4" style="height: 6px;">
-                            <div class="progress-bar custom-bg-cyan" role="progressbar" style="width: 40%"></div>
-                        </div>
-                        <div class="fake-chart d-flex align-items-end justify-content-between pt-2">
-                            <div class="chart-bar" style="height: 15%"></div>
-                            <div class="chart-bar" style="height: 20%"></div>
-                            <div class="chart-bar" style="height: 35%"></div>
-                            <div class="chart-bar active" style="height: 40%"></div>
-                            <div class="chart-bar" style="height: 30%"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4" id="metasContainer">
             </div>
-        </div>
     </section>
 
     <section id="ferramentas" class="section-spacing">
@@ -410,12 +369,13 @@
         </div>
     </section>
 
+    <!-- ALERTA SUCESSO -->
     <div style="display: none;" class="custom-alert alert-success-custom" id="alertBox">
         <div class="d-flex align-items-center gap-3">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-                <h6 class="mb-1">Tarefa adicionada!</h6>
-                <p class="mb-0">Sua tarefa foi salva com sucesso.</p>
+                <h6 class="mb-1">Tarefa criada com sucesso!</h6>
+                <p class="mb-0">Vá até <strong>Tarefas Recentes</strong>.</p>
             </div>
         </div>
         <button class="btn-close-alert" onclick="fecharAlert()">
@@ -435,19 +395,12 @@
         </button>
     </div>
 
-    <!-- ALERTA SUCESSO -->
-    <div style="display: none;" class="custom-alert alert-success-custom" id="alertBox">
-        <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-check-circle-fill"></i>
-            <div>
-                <h6 class="mb-1">Tarefa criada com sucesso!</h6>
-                <p class="mb-0">Vá até <strong>Tarefas Recentes</strong>.</p>
-            </div>
-        </div>
-        <button class="btn-close-alert" onclick="fecharAlert()">
-            <i class="bi bi-x-lg"></i>
-        </button>
-    </div>
+
+
+
+
+
+
     <footer class="py-4 border-top border-secondary-subtle">
         <div class="container">
             <div class="row align-items-center gy-3">
