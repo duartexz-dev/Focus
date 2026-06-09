@@ -55,19 +55,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let tarefas = document.getElementById("tasksR")
 let tarefasS = localStorage.getItem("TasksSalvas")
-
+tarefas.innerHTML = 0
 tarefas.innerHTML = `${tarefasS}`
 
 
 let tarefasCHistorico = document.getElementById("TarefasConcluidas")
 tarefasCHistorico.innerHTML = localStorage.getItem("tarefasFeitas")
 
-
+document.addEventListener("DOMContentLoaded", function () {
+    atualizarSequencia();
+}); // função que vê quando o user entra na página //
 
 let metas = document.getElementById("Metas")
-let sequencia = document.getElementById("SequenciaDiaria")
+
 metas.innerHTML = 0
-sequencia.innerHTML = 0 + "d"
+
 
 const nome = JSON.parse(localStorage.getItem("nomeUser"))
 
@@ -163,6 +165,7 @@ function concluirTask() {
     localStorage.setItem("tarefasFeitas", TarefasFeitas)
     atualizarConcluidas(1)
     atualizarProgresso()
+
 }
 
 function atualizarTotal(adicional) {

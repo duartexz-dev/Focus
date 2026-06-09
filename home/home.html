@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <link rel="stylesheet" href="home.css">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-6 col-md-3 scroll-reveal">
                     <div class="stat-card p-4 text-center">
-                        <h3 class="stat-number text-gradient" id="SequenciaDiaria">12 d</h3>
+                        <h3 class="stat-number text-gradient" id="SequenciaDiaria">0</h3>
                         <p class="stat-label mb-0 text-muted">Sequência Diária</p>
                     </div>
                 </div>
@@ -330,13 +330,13 @@
 
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3 scroll-reveal">
-                    <div class="tool-card p-4 text-center">
+                    <button onclick="openMetodPomodoro()" class="tool-card p-4 text-center">
                         <div class="tool-icon mb-3 mx-auto text-cyan">
                             <i class="bi bi-clock-history"></i>
                         </div>
                         <h5>Pomodoro</h5>
                         <p class="text-muted font-sm mb-0">Ciclos de foco programados para máxima atenção.</p>
-                    </div>
+                    </button>
                 </div>
                 <div class="col-md-6 col-lg-3 scroll-reveal">
                     <div class="tool-card p-4 text-center">
@@ -397,7 +397,49 @@
 
 
 
+    <div style="display: none;" class="pomodoro-popup" id="pomodoroPopup">
 
+        <div class="pomodoro-popup__icon">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+
+        <div class="pomodoro-popup__content">
+
+            <span class="pomodoro-popup__label">
+                MÉTODO POMODORO
+            </span>
+
+            <h3 class="pomodoro-popup__title">
+                Hora de focar
+            </h3>
+
+            <p class="pomodoro-popup__timer" id="pomodoroTimer">
+                25:00
+            </p>
+
+            <!-- BOTÕES -->
+            <div class="pomodoro-popup__actions">
+
+                <button class="pomodoro-btn start-btn" id="startPomodoro">
+                    <i class="fa-solid fa-play"></i>
+                    Começar
+                </button>
+
+                <button class="pomodoro-btn pause-btn" id="pausePomodoro">
+                    <i class="fa-solid fa-pause"></i>
+                    Pausar
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- FECHAR -->
+        <button class="pomodoro-popup__close" onclick="closeMetodPomodoro()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
 
 
 
