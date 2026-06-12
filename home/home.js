@@ -54,19 +54,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let tarefas = document.getElementById("tasksR")
-let tarefasS = localStorage.getItem("TasksSalvas")
-tarefas.innerHTML = 0
+let tarefasS = localStorage.getItem("TasksSalvas") || "0";
 tarefas.innerHTML = `${tarefasS}`
 
 
-let tarefasCHistorico = document.getElementById("TarefasConcluidas")
+let tarefasCHistorico = document.getElementById("TarefasConcluidas") || "";
 tarefasCHistorico.innerHTML = localStorage.getItem("tarefasFeitas")
 
 document.addEventListener("DOMContentLoaded", function () {
     atualizarSequencia();
 }); // função que vê quando o user entra na página //
 
-let metas = document.getElementById("Metas")
+let metas = document.getElementById("Metas") || 0;
 
 metas.innerHTML = 0
 
@@ -182,13 +181,20 @@ let total = localStorage.getItem("totaldetarefas")
 
 
 function atualizarProgresso() {
+    let progressoInicial = Number(localStorage.getItem("progressoSalvo")) || 0;// ele atualiza o progresso inicial , junto com o progresso salvo //
+    let total = Number(localStorage.getItem("totaldetarefas")) || 0;//e esse salva o total real junto com o inicial //
+    let progressoReal;
 
-    let progressoInicial = Number(localStorage.getItem("progressoSalvo"))// ele atualiza o progresso inicial , junto com o progresso salvo //
-    let total = Number(localStorage.getItem("totaldetarefas"))//e esse salva o total real junto com o inicial //
 
-    let progressoReal = (progressoInicial / total) * 100
+    if (total <= 0) {
+        progressoReal = 0
+    } else {
+        progressoReal = (progressoInicial / total) * 100
+    }
 
     localStorage.setItem("produtividade", progressoReal)
+    produtividadeText.innerHTML = Math.min(Number(progresso), 100).toFixed(0) + "%"
+
 }
 
 
@@ -290,5 +296,47 @@ function criarMeta() {
     document.getElementById("metasName").value = ""
     document.getElementById("metaTemp").value = ""
     document.getElementById("metasObjective").value = ""
+
+}
+
+//sequencia diária//
+let sequencia = document.getElementById("SequenciaDiaria");
+let novaSequencia = localStorage.getItem("SequenciaAtual")
+sequencia.innerText = novaSequencia || 0;//isso é para todo localstorege que comece em null sempre pelo fato de não ter nenhum conteúdo//
+
+
+function atualizarSequencia() {
+
+    const hoje = new Date();
+    const dia = hoje.getDate();
+    let dataHoje = dia;
+    let SequenciaOld = localStorage.getItem("ultimoDiaSalvo");
+
+    if (dataHoje === Number(SequenciaOld)) {
+        setTimeout(() => {
+            console.log("Sequencia diária atualizada!");
+        }, 2000);
+    } else {
+        sequencia.innerText = Number(sequencia.innerText) + 1;
+
+        localStorage.setItem("SequenciaAtual", Number(sequencia.innerText))
+        localStorage.setItem("ultimoDiaSalvo", dataHoje);
+    }
+
+}
+
+//Sistemas de Ferramentas//
+
+//Método pomodoro//
+function openMetodPomodoro() {
+    let budge = document.getElementById("pomodoroPopup")
+    budge.style.display = "flex"
+}
+function closeMetodPomodoro() {
+    let budge = document.getElementById("pomodoroPopup")
+    budge.style.display = "none"
+}
+
+function startMetod() {
 
 }
