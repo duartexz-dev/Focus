@@ -339,4 +339,24 @@ function closeMetodPomodoro() {
 
 function startMetod() {
 
+    let minutos = 24
+    let segundos = 59
+
+    setInterval(() => {
+        document.getElementById("pomodoroTimer").innerHTML = `${minutos}:${segundos}`
+        segundos--
+
+        if (minutos <= 0 && segundos <= 0) {
+            document.getElementById("pomodoroTimer").innerHTML = `Tempo de descanso!`
+            clearInterval(timer)
+            return
+        }
+        if (segundos <= 0) {
+            minutos--
+            segundos = 59
+        }
+
+    }, 1000)
+
+
 }
