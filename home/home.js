@@ -360,3 +360,20 @@ function startMetod() {
 
 
 }
+/* ==========================================================================
+   EFEITOS VISUAIS PARA INTERAÇÃO MOBILE
+   ========================================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileLinks = document.querySelectorAll("#mobileNavLinks .nav-link");
+
+    mobileLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            // Remove a classe active de todos os links da barra inferior
+            mobileLinks.forEach(item => item.classList.remove("active"));
+
+            // Adiciona a classe active apenas ao link que foi clicado
+            this.classList.add("active");
+        });
+    });
+});
