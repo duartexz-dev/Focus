@@ -9,7 +9,7 @@
   --bg-white: #ffffff; /* Blanco Puro para foco cirúrgico em inputs/previews */
 
   --border-ui: #e4e4d9; /* Linhas finas e discretas estruturais */
-  --border-ui-focus: #111111; /* Foco em Preto Absoluto */
+  --border-ui-focus: #000000; /* Foco em Preto Absoluto */
 
   /* Identidade Visual: Verde Musgo + Black */
   --brand-primary: #111111; /* Preto Absoluto para comandos e textos principais */
@@ -42,7 +42,12 @@
 }
 
 body {
-  background-color: var(--bg-app) !important;
+  background: radial-gradient(
+    ellipse at top right,
+    transparent,
+    #e4e4d9,
+    #f3f3f3
+  );
   color: var(--text-main) !important;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
@@ -118,12 +123,12 @@ body {
    NAVBAR COMPONENT & LOGO REFINADA (EDITORIAL / ART GALLERY)
    ========================================================================== */
 .custom-navbar {
-  background: rgba(
-    251,
-    251,
-    248,
-    0.85
-  ) !important; /* Base do Branco Creme com Blur */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.594
+  ); /* Base do Branco Creme com Blur */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-ui) !important;
@@ -219,7 +224,7 @@ body {
 .cyan-btn,
 .purple-btn,
 .start-btn {
-  background: var(--brand-primary) !important;
+  background-color: #4a6b52;
   color: var(--bg-app) !important;
   border: 1px solid var(--brand-primary) !important;
   box-shadow: none !important;
@@ -229,7 +234,7 @@ body {
 .cyan-btn:hover,
 .purple-btn:hover,
 .start-btn:hover {
-  background: var(--brand-primary-hover) !important;
+  background-color: #4a6b52;
   border-color: var(--brand-primary-hover) !important;
   color: var(--bg-white) !important;
   transform: translateY(-1px);
