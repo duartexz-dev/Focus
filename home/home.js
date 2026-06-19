@@ -129,9 +129,10 @@ function criarTarefa() {
                     ${dataTask} / ${hora}
                 </span>
             </span>
-            <button class="btn-done" onclick = "concluirTask()">             <i class="bi bi-check-circle"></i>
-                Concluir
-            </button>
+         <button class="btn-done" onclick="concluirTask(this)">
+    <i class="bi bi-check-circle"></i>
+    Concluir
+</button>
         </div>
     </div>
 </div>`
@@ -158,14 +159,6 @@ function fecharErro() {
     document.getElementById("alertErro").style.display = "none";
 }
 
-function concluirTask() {
-    let TarefasFeitas = Number(tarefasCHistorico.innerHTML) + 1
-    tarefasCHistorico.innerHTML = `${TarefasFeitas}`
-    localStorage.setItem("tarefasFeitas", TarefasFeitas)
-    atualizarConcluidas(1)
-    atualizarProgresso()
-
-}
 
 function atualizarTotal(adicional) {
     let totaldeTarefas = Number(localStorage.getItem("totaldetarefas")) + Number(adicional)
@@ -264,9 +257,14 @@ function criarMeta() {
 
             </div>
 
-            <p class="text-muted mb-0">
-                ${objetivoMeta}
-            </p>
+         <p class="text-muted mb-0">
+    ${objetivoMeta}
+</p>
+
+<button class="btn-done mt-3" onclick="concluirMeta(this)">
+    <i class="bi bi-check-circle"></i>
+    Concluir Meta
+</button>
 
         </div>
 
@@ -377,3 +375,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+//feito com AI//
+function concluirTask(botao) {
+
+    let TarefasFeitas = Number(tarefasCHistorico.innerHTML || 0) + 1;
+
+    tarefasCHistorico.innerHTML = TarefasFeitas;
+    localStorage.setItem("tarefasFeitas", TarefasFeitas);
+
+    atualizarConcluidas(1);
+    atualizarProgresso();
+
+    const card = botao.closest(".col-lg-4");
+
+    if (card) {
+        card.remove();
+    }
+
+    localStorage.setItem("TasksSalvas", tarefas.innerHTML);
+}
+function concluirMeta(botao) {
+
+    // Remove a meta da tela
+    const meta = botao.closest(".col-md-6");
+
+    if (meta) {
+        meta.remove();
+    }
+
+    // Atualiza o contador de metas
+    totalMetas--;
+
+    if (totalMetas < 0) {
+        totalMetas = 0;
+    }
+
+    metas.innerHTML = totalMetas;
+
+    // Salva
+    localStorage.setItem("totalMetas", totalMetas);
+    localStorage.setItem("metasSalvas", metasContainer.innerHTML);
+}
