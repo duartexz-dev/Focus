@@ -25,8 +25,9 @@
                 <div class="logo-icon me-2"></div>
                 <span class="fw-bold tracking-wider text-black">FOCUS</span>
             </a>
-            <button style="background-color:#4a6b52;" class="navbar-toggler border-0" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                style="background-color: var(--brand-moss);">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
@@ -42,46 +43,48 @@
         </div>
     </nav>
 
-    <section class="login-section d-flex align-items-center justify-content-center">
+    <section class="login-section d-flex align-items-center justify-content-center"
+        style="min-height: calc(100vh - 100px); padding: 40px 0;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-7 col-sm-10">
                     <div class="scroll-reveal visible">
-                        <div class="login-form-container">
+                        <div class="modern-form-card p-4 p-sm-5">
                             <div class="login-form">
 
-                                <div class="text-center mb-5">
-                                    <div class="logo-icon-lg mx-auto mb-3"></div>
-                                    <h2 class="form-title mb-2">Bem-vindo ao FOCUS</h2>
-                                    <p class="text-muted mb-0">Faça login para acessar sua conta</p>
+                                <div class="text-center mb-4">
+                                    <div class="logo-icon mb-3 mx-auto" style="width: 32px; height: 32px;"></div>
+                                    <h2 class="h4 fw-bold mb-2 text-black">Bem-vindo ao FOCUS</h2>
+                                    <p class="text-muted font-sm mb-0">Faça login para acessar sua conta</p>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control form-control-custom" id="email"
-                                        placeholder="seu@email.com">
+                                    <label class="form-label-modern">Email</label>
+                                    <input type="email" class="modern-input w-100" id="email"
+                                        placeholder="seu@email.com" autocomplete="email">
                                 </div>
 
                                 <div class="form-group mb-4">
-                                    <label class="form-label">Senha</label>
-                                    <div class="input-group">
-                                        <input style="color: white;" type="password"
-                                            class="form-control form-control-custom" id="senha" placeholder="Sua senha">
-                                    </div>
+                                    <label class="form-label-modern">Senha</label>
+                                    <input type="password" class="modern-input w-100" id="senha" placeholder="Sua senha"
+                                        autocomplete="current-password">
                                 </div>
 
-                                <button onclick="confirmLogin()" class="btn btn-premium w-100 py-2 mb-3">
-                                    <i class="bi bi-box-arrow-in-right me-2"></i>
-                                    Entrar
+                                <button onclick="confirmLogin()" class="btn-premium w-100 justify-content-center">
+                                    <i class="bi bi-box-arrow-in-right"></i> Entrar
                                 </button>
 
-                                <div class="divider-text my-4">OU</div>
+                                <div class="text-center text-muted font-sm my-4 position-relative">
+                                    <hr class="my-0 style-muted opacity-25">
+                                    <span
+                                        class="position-absolute top-50 start-50 translate-middle bg-white px-3 fw-bold"
+                                        style="font-size: 0.7rem; letter-spacing: 0.05em;">OU</span>
+                                </div>
 
                                 <p class="text-center text-muted font-sm mb-0">
                                     Não tem conta?
-                                    <a href="../index.html#cadastro" class="link-highlight text-decoration-none">
-                                        Criar conta
-                                    </a>
+                                    <a href="../index.html#cadastro" class="text-decoration-none fw-bold"
+                                        style="color: var(--brand-moss);">Criar conta</a>
                                 </p>
 
                             </div>
@@ -93,9 +96,12 @@
     </section>
 
     <div style="display: none;" class="custom-alert alert-success-custom" id="alertBox">
-        <div class="alert-content">
-            <h6>Login realizado com sucesso!</h6>
-            <p>Vamos te direcionar para o dashboard.</p>
+        <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-check-circle-fill" style="color: var(--brand-moss);"></i>
+            <div class="alert-content">
+                <h6>Login realizado com sucesso!</h6>
+                <p>Vamos te direcionar para o dashboard.</p>
+            </div>
         </div>
         <button class="btn-close-alert" onclick="fecharAlert()">
             <i class="bi bi-x-lg"></i>
@@ -103,22 +109,26 @@
     </div>
 
     <div style="display: none;" class="custom-alert alert-error-custom" id="alertErro">
-        <div class="alert-content">
-            <h6>Erro no login</h6>
-            <p>Email ou senha inválidos. Tente novamente.</p>
+        <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-x-circle-fill" style="color: #a74a4a;"></i>
+            <div class="alert-content">
+                <h6>Erro no login</h6>
+                <p>Email ou senha inválidos. Tente novamente.</p>
+            </div>
         </div>
         <button class="btn-close-alert" onclick="fecharErro()">
             <i class="bi bi-x-lg"></i>
         </button>
     </div>
-    <footer class="py-4 border-top border-secondary-subtle">
+
+    <footer class="py-4 border-top border-secondary-subtle" style="background-color: var(--bg-card);">
         <div class="container">
             <div class="row align-items-center gy-3">
                 <div class="col-md-4 text-center text-md-start">
                     <span class="font-sm text-muted">&copy; 2026 FOCUS. Todos os direitos reservados.</span>
                 </div>
                 <div class="col-md-4 text-center">
-                    <div class="d-flex justify-content-center gap-2">
+                    <div class="d-flex justify-content-center gap-2 align-items-center">
                         <div class="logo-icon logo-sm"></div>
                         <span class="fw-bold font-sm tracking-wider text-black">FOCUS</span>
                     </div>
@@ -133,6 +143,7 @@
             </div>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/login.js"></script>
 

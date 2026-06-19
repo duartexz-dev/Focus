@@ -21,19 +21,19 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#inicio">
+            <a class="navbar-brand" href="#inicio">
                 <div class="logo-icon me-2"></div>
                 <span class="fw-bold tracking-wider text-black">FOCUS</span>
             </a>
-            <button style="background-color:#4a6b52;" class="navbar-toggler border-0" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                style="background-color: var(--brand-moss);">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="#inicio">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tarefas">Tarefas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#metas">Metas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#metasSection">Metas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#ferramentas">Ferramentas</a></li>
                 </ul>
                 <div class="d-flex mt-3 mt-lg-0">
@@ -47,14 +47,14 @@
         <div class="container">
             <div class="row align-items-center gy-5">
                 <div class="col-lg-6 scroll-reveal">
-                    <p class="welcome-message mb-3" id="welcomeMessage"
-                        style="font-size: 1.1rem; color: #06b6d4; font-weight: 500;"></p>
+                    <p class="welcome-message mb-3 id=" welcomeMessage"
+                        style="font-size: 1.1rem; color: var(--brand-moss); font-weight: 500;"></p>
                     <h1 class="hero-title mb-3" id="heroTitle">Simplifique sua rotina. <br><span
                             class="text-gradient">Alcance suas metas.</span></h1>
                     <p class="hero-subtitle mb-4 text-muted">Um espaço minimalista e direto para você organizar suas
                         tarefas diárias, rastrear objetivos de longo prazo e manter o foco no que realmente importa.</p>
                     <div class="d-flex gap-3">
-                        <a href="#metas" class="btn btn-premium px-4 py-2">Criar Meta</a>
+                        <a href="#metasSection" class="btn btn-premium px-4 py-2">Criar Meta</a>
                         <a href="#tarefas" class="btn btn-outline-custom px-4 py-2">Ver Tarefas</a>
                     </div>
                 </div>
@@ -85,25 +85,25 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-6 col-md-3 scroll-reveal">
-                    <div class="stat-card p-4 text-center">
+                    <div class="stat-card p-4">
                         <h3 class="stat-number text-gradient" id="TarefasConcluidas">0</h3>
                         <p class="stat-label mb-0 text-muted">Tarefas Concluídas</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 scroll-reveal">
-                    <div class="stat-card p-4 text-center">
+                    <div class="stat-card p-4">
                         <h3 class="stat-number text-gradient" id="Metas">0</h3>
                         <p class="stat-label mb-0 text-muted">Metas Ativas</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 scroll-reveal">
-                    <div class="stat-card p-4 text-center">
+                    <div class="stat-card p-4">
                         <h3 class="stat-number text-gradient" id="Produtividade">0%</h3>
                         <p class="stat-label mb-0 text-muted">Produtividade</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 scroll-reveal">
-                    <div class="stat-card p-4 text-center">
+                    <div class="stat-card p-4">
                         <h3 class="stat-number text-gradient" id="SequenciaDiaria">0</h3>
                         <p class="stat-label mb-0 text-muted">Sequência Diária</p>
                     </div>
@@ -117,42 +117,42 @@
             <div class="text-center mb-5 scroll-reveal">
                 <span class="badge rounded-pill custom-badge px-4 py-2 mb-3">ORGANIZAÇÃO PESSOAL</span>
                 <h2 class="section-title">Gerencie suas tarefas e metas</h2>
-                <p class="section-subtitle">Organize sua rotina, acompanhe seu progresso e mantenha o foco no que
-                    importa.</p>
+                <p class="section-subtitle text-muted">Organize sua rotina, acompanhe seu progresso e mantenha o foco no
+                    que importa.</p>
             </div>
 
             <div class="row g-4 align-items-stretch">
                 <div class="col-lg-6 scroll-reveal">
                     <div class="modern-form-card task-card h-100">
-                        <div class="form-header">
-                            <div class="form-icon cyan-glow"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <div class="form-header d-flex gap-3 align-items-center">
+                            <div class="form-icon"><i class="bi bi-lightning-charge-fill"></i></div>
                             <div>
-                                <span class="form-mini-text">PRODUTIVIDADE</span>
-                                <h3 class="modern-form-title">Nova Tarefa</h3>
+                                <span class="form-mini-text text-muted font-sm d-block">PRODUTIVIDADE</span>
+                                <h3 class="modern-form-title m-0 h5 fw-bold">Nova Tarefa</h3>
                             </div>
                         </div>
                         <div class="mt-4">
                             <div class="mb-3">
                                 <label class="form-label-modern">Nome da tarefa</label>
-                                <input type="text" class="modern-input" id="nomeT" placeholder="Ex: Estudar JavaScript"
-                                    autocomplete="off">
+                                <input type="text" class="modern-input w-100" id="nomeT"
+                                    placeholder="Ex: Estudar JavaScript" autocomplete="off">
                             </div>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label-modern">Horário</label>
-                                    <input type="time" class="modern-input" id="horaT">
+                                    <input type="time" class="modern-input w-100" id="horaT">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label-modern">Data</label>
-                                    <input type="date" class="modern-input" id="dataT">
+                                    <input type="date" class="modern-input w-100" id="dataT">
                                 </div>
                             </div>
                             <div class="mt-3">
                                 <label class="form-label-modern">Descrição</label>
-                                <textarea class="modern-input modern-textarea" id="bioT"
+                                <textarea class="modern-input w-100" id="bioT" rows="3"
                                     placeholder="Descreva os detalhes da tarefa..."></textarea>
                             </div>
-                            <button onclick="criarTarefa()" class="modern-btn cyan-btn mt-4 w-100">
+                            <button onclick="criarTarefa()" class="btn-premium mt-4 w-100">
                                 <i class="bi bi-plus-lg"></i> Criar Tarefa
                             </button>
                         </div>
@@ -160,30 +160,30 @@
                 </div>
 
                 <div class="col-lg-6 scroll-reveal">
-                    <div class="modern-form-card goal-card-modern h-100">
-                        <div class="form-header">
-                            <div class="form-icon purple-glow"><i class="bi bi-bullseye"></i></div>
+                    <div class="modern-form-card goal-card h-100">
+                        <div class="form-header d-flex gap-3 align-items-center">
+                            <div class="form-icon"><i class="bi bi-bullseye"></i></div>
                             <div>
-                                <span class="form-mini-text">LONGO PRAZO</span>
-                                <h3 class="modern-form-title">Nova Meta</h3>
+                                <span class="form-mini-text text-muted font-sm d-block">LONGO PRAZO</span>
+                                <h3 class="modern-form-title m-0 h5 fw-bold">Nova Meta</h3>
                             </div>
                         </div>
                         <div class="mt-4">
                             <div class="mb-3">
                                 <label class="form-label-modern">Nome da meta</label>
-                                <input type="text" class="modern-input" id="metasName"
+                                <input type="text" class="modern-input w-100" id="metasName"
                                     placeholder="Ex: Fluência em Inglês" autocomplete="off">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label-modern">Prazo</label>
-                                <input type="date" class="modern-input" id="metaTemp">
+                                <input type="date" class="modern-input w-100" id="metaTemp">
                             </div>
                             <div>
                                 <label class="form-label-modern">Objetivo</label>
-                                <textarea class="modern-input modern-textarea" id="metasObjective"
+                                <textarea class="modern-input w-100" id="metasObjective" rows="3"
                                     placeholder="Descreva sua meta..."></textarea>
                             </div>
-                            <button onclick="criarMeta()" class="modern-btn purple-btn mt-4 w-100">
+                            <button onclick="criarMeta()" class="btn-premium mt-4 w-100">
                                 <i class="bi bi-rocket-takeoff-fill"></i> Criar Meta
                             </button>
                         </div>
@@ -196,10 +196,11 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-end mb-5 scroll-reveal">
             <div>
-                <span class="text-uppercase tracking-wider text-cyan font-sm" id="tasksLabel">Fluxo de Trabalho</span>
+                <span class="text-uppercase tracking-wider font-sm d-block" style="color: var(--brand-moss);">Fluxo de
+                    Trabalho</span>
                 <h2 class="section-title mt-1" id="recentTasksTitle">Tarefas Recentes</h2>
-                <p class="task-section-message mt-3" id="taskSectionMessage"
-                    style="font-size: 0.95rem; color: #9ca3af;"></p>
+                <p class="task-section-message mt-2 mb-0 text-muted" id="taskSectionMessage"
+                    style="font-size: 0.95rem;"></p>
             </div>
             <div class="progress-container text-end d-none d-sm-block">
                 <span class="font-sm text-muted mb-2 d-block" id="dailyProgressText">Progresso Diário: 0%</span>
@@ -216,9 +217,10 @@
     <section id="metasSection" class="section-spacing">
         <div class="container">
             <div class="mb-5 scroll-reveal">
-                <span class="text-uppercase tracking-wider text-purple font-sm">Foco de Longo Prazo</span>
+                <span class="text-uppercase tracking-wider font-sm d-block" style="color: var(--brand-moss);">Foco de
+                    Longo Prazo</span>
                 <h2 class="section-title mt-1" id="goalsTitle">Metas Principais</h2>
-                <p class="goals-message mt-3" id="goalsMessage" style="font-size: 0.95rem; color: #9ca3af;"></p>
+                <p class="goals-message mt-2 mb-0 text-muted" id="goalsMessage" style="font-size: 0.95rem;"></p>
             </div>
 
             <div class="row g-4" id="metasContainer"></div>
@@ -228,45 +230,45 @@
     <section id="ferramentas" class="section-spacing">
         <div class="container">
             <div class="mb-5 scroll-reveal">
-                <span class="text-uppercase tracking-wider text-cyan font-sm">Ecossistema</span>
+                <span class="text-uppercase tracking-wider font-sm d-block"
+                    style="color: var(--brand-moss);">Ecossistema</span>
                 <h2 class="section-title mt-1">Ferramentas Integradas</h2>
             </div>
 
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3 scroll-reveal">
-                    <button onclick="openMetodPomodoro()" class="tool-card p-4 text-center btn border-0 w-100"
-                        style="background: none;">
-                        <div class="tool-icon mb-3 mx-auto text-cyan">
+                    <button onclick="openMetodPomodoro()" class="tool-card p-4 text-center btn border-0 w-100 h-100">
+                        <div class="tool-icon mb-3 mx-auto" style="color: var(--brand-moss); font-size: 1.5rem;">
                             <i class="bi bi-clock-history"></i>
                         </div>
-                        <h5 class="text-black">Pomodoro</h5>
+                        <h5 class="text-black h6 fw-bold">Pomodoro</h5>
                         <p class="text-muted font-sm mb-0">Ciclos de foco programados para máxima atenção.</p>
                     </button>
                 </div>
                 <div class="col-md-6 col-lg-3 scroll-reveal">
-                    <div class="tool-card p-4 text-center">
-                        <div class="tool-icon mb-3 mx-auto text-purple">
+                    <div class="tool-card p-4 text-center h-100">
+                        <div class="tool-icon mb-3 mx-auto" style="color: var(--brand-moss); font-size: 1.5rem;">
                             <i class="bi bi-calendar-event"></i>
                         </div>
-                        <h5 class="text-black">Calendário</h5>
+                        <h5 class="text-black h6 fw-bold">Calendário</h5>
                         <p class="text-muted font-sm mb-0">Sincronize prazos e compromissos importantes.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 scroll-reveal">
-                    <div class="tool-card p-4 text-center">
-                        <div class="tool-icon mb-3 mx-auto text-cyan">
+                    <div class="tool-card p-4 text-center h-100">
+                        <div class="tool-icon mb-3 mx-auto" style="color: var(--brand-moss); font-size: 1.5rem;">
                             <i class="bi bi-journal-text"></i>
                         </div>
-                        <h5 class="text-black">Notas Rápidas</h5>
+                        <h5 class="text-black h6 fw-bold">Notas Rápidas</h5>
                         <p class="text-muted font-sm mb-0">Rascunhos instantâneos sem perder o raciocínio.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 scroll-reveal">
-                    <div class="tool-card p-4 text-center">
-                        <div class="tool-icon mb-3 mx-auto text-purple">
+                    <div class="tool-card p-4 text-center h-100">
+                        <div class="tool-icon mb-3 mx-auto" style="color: var(--brand-moss); font-size: 1.5rem;">
                             <i class="bi bi-moon-stars"></i>
                         </div>
-                        <h5 class="text-black">Modo Foco</h5>
+                        <h5 class="text-black h6 fw-bold">Modo Foco</h5>
                         <p class="text-muted font-sm mb-0">Bloqueio visual completo de distrações.</p>
                     </div>
                 </div>
@@ -276,7 +278,7 @@
 
     <div style="display: none;" class="custom-alert alert-success-custom" id="alertBox">
         <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-check-circle-fill"></i>
+            <i class="bi bi-check-circle-fill" style="color: var(--brand-moss);"></i>
             <div>
                 <h6 class="mb-1">Ação realizada com sucesso!</h6>
                 <p class="mb-0">Seu painel foi atualizado.</p>
@@ -289,7 +291,7 @@
 
     <div style="display: none;" class="custom-alert alert-error-custom" id="alertErro">
         <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-x-circle-fill"></i>
+            <i class="bi bi-x-circle-fill" style="color: #a74a4a;"></i>
             <div>
                 <h6 class="mb-1">Campos inválidos.</h6>
                 <p class="mb-0">Preencha todas as informações. Tente novamente.</p>
@@ -301,12 +303,12 @@
     </div>
 
     <div style="display: none;" class="pomodoro-popup" id="pomodoroPopup">
-        <div class="pomodoro-popup__icon">
+        <div class="pomodoro-popup__icon mb-2" style="font-size: 1.5rem; color: var(--brand-moss);">
             <i class="fa-solid fa-clock"></i>
         </div>
         <div class="pomodoro-popup__content">
             <span class="pomodoro-popup__label">MÉTODO POMODORO</span>
-            <h3 class="pomodoro-popup__title">Hora de focar</h3>
+            <h3 class="pomodoro-popup__title h5 fw-bold mt-2">Hora de focar</h3>
             <p class="pomodoro-popup__timer" id="pomodoroTimer">25:00</p>
             <div class="pomodoro-popup__actions">
                 <button class="pomodoro-btn start-btn" onclick="startMetod()">
@@ -321,14 +323,14 @@
 
     <div id="mobileNavLinks"></div>
 
-    <footer class="py-4 border-top border-secondary-subtle">
+    <footer class="py-4 border-top border-secondary-subtle" style="background-color: var(--bg-card);">
         <div class="container">
             <div class="row align-items-center gy-3">
                 <div class="col-md-4 text-center text-md-start">
                     <span class="font-sm text-muted">&copy; 2026 FOCUS. Todos os direitos reservados.</span>
                 </div>
                 <div class="col-md-4 text-center">
-                    <div class="d-flex justify-content-center gap-2">
+                    <div class="d-flex justify-content-center gap-2 align-items-center">
                         <div class="logo-icon logo-sm"></div>
                         <span class="fw-bold font-sm tracking-wider text-black">FOCUS</span>
                     </div>
@@ -337,7 +339,7 @@
                     <div class="footer-links d-flex justify-content-center justify-content-md-end gap-3">
                         <a href="#inicio" class="font-sm text-muted text-decoration-none">Início</a>
                         <a href="#tarefas" class="font-sm text-muted text-decoration-none">Tarefas</a>
-                        <a href="#metas" class="font-sm text-muted text-decoration-none">Metas</a>
+                        <a href="#metasSection" class="font-sm text-muted text-decoration-none">Metas</a>
                     </div>
                 </div>
             </div>
